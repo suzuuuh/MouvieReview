@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root :to => 'public/homes#top'
+
+
   namespace :public do
     get 'comments/new'
     get 'comments/confirm'
@@ -6,8 +9,7 @@ Rails.application.routes.draw do
     get 'comments/index'
     get 'comments/show'
     get 'comments/edit'
-  end
-  namespace :public do
+
     get 'posts/new'
     get 'posts/confirm'
     get 'posts/complete'
@@ -28,26 +30,22 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'homes/about'
   end
+
+
   namespace :admin do
-    get 'posts/show'
+    root to: "homes#top"
+    resources :posts, only: [:show]
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :movies, only: [:index, :show]
+
   end
-  namespace :admin do
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
-  end
-  namespace :admin do
-    get 'movies/index'
-    get 'movies/show'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
+
+
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
