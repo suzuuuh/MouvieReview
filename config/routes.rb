@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root :to => 'public/homes#top'
 
-
-  namespace :public do
+  scope module: :public do
+    get 'about'=>'public/homes#about'
+    resources :comments, only: [:new, :confirm, :commplete, :index, :show, :edit]
+    resources :movies, only: [:index, :show]
+    resources :users, only: [:edit, :show]
     get 'comments/new'
     get 'comments/confirm'
     get 'comments/complete'
@@ -16,17 +19,11 @@ Rails.application.routes.draw do
     get 'posts/index'
     get 'posts/show'
     get 'posts/edit'
-  end
-  namespace :public do
     get 'users/show'
     get 'users/edit'
     get 'users/confirm'
-  end
-  namespace :public do
     get 'movies/index'
     get 'movies/show'
-  end
-  namespace :public do
     get 'homes/top'
     get 'homes/about'
   end
@@ -37,7 +34,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:show]
     resources :users, only: [:index, :show, :edit, :update]
     resources :movies, only: [:index, :show]
-
   end
 
 

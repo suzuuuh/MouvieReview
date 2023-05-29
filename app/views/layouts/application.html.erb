@@ -22,13 +22,13 @@
       <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
       <li>
-        <%= link_to "マイページ", public_users_show_path, class: 'nav-link text-light' %>
+        <%= link_to "マイページ", users_show_path, class: 'nav-link text-light' %>
       </li>
       <li>
-        <%= link_to "商品一覧", public_movies_index_path, class: 'nav-link text-light' %>
+        <%= link_to "商品一覧", movies_index_path, class: 'nav-link text-light' %>
       </li>
       <li>
-        <%= link_to "カート", public_posts_new_path, class: 'nav-link text-light' %>
+        <%= link_to "カート", posts_new_path, class: 'nav-link text-light' %>
       </li>
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, class: 'nav-link text-light', method: :delete %>
@@ -52,10 +52,10 @@
 
     <% else %>
       <li>
-        <%= link_to "About", public_homes_about_path, class: 'nav-link text-light' %>
+        <%= link_to "About", homes_about_path, class: 'nav-link text-light' %>
       </li>
       <li>
-        <%= link_to "商品一覧", public_movies_index_path, class: 'nav-link text-light' %>
+        <%= link_to "商品一覧", movies_index_path, class: 'nav-link text-light' %>
       </li>
       <li>
         <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-light' %>
