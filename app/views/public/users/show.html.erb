@@ -1,2 +1,65 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<p class="notice"></p>
+<div class="container">
+  <div class="row">
+    <h1>マイページ</h1>
+
+  <p class="notice"></p>
+  <div class="container">
+    <div class="row">
+    <table class="table">
+      <tbody>
+        <h6>登録情報</h6>
+
+          <div class="form-group">
+            <%= link_to "編集する ", edit_user_path, class:"btn btn-outline-primary btn-sm" %>
+          </div>
+
+  <p class="notice"></p>
+    <div class="container">
+    <div class="row">
+          <tr>
+            <th>氏名</th>
+            <td>
+              <%= @user.nick_name %>
+            </td>
+          </tr>
+          <tr>
+            <th>年齢</th>
+            <td>
+              <%= @user.age %>
+            </td>
+          </tr>
+          <tr>
+            <th>性別</th>
+            <td>
+              <%= @user.sex %>
+
+              <%#= User.sex_i18n[@user.sex] %>
+              <%#= f.hidden_field :payment_method, value: @order.payment_method %>
+            </td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td>
+              <%= @user.email %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    <p class="notice"></p>
+      <div class="container">
+        <div class="row">
+          <h6>投稿履歴</h6>
+            <div class="form-group">
+              <%= link_to "一覧を見る", comment_path, class:"btn btn-outline-success btn-sm" %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+

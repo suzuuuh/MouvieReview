@@ -25,23 +25,23 @@
         <%= link_to "マイページ", users_show_path, class: 'nav-link text-light' %>
       </li>
       <li>
-        <%= link_to "商品一覧", movies_index_path, class: 'nav-link text-light' %>
+        <%= link_to "作品一覧", movies_index_path, class: 'nav-link text-light' %>
       </li>
       <li>
-        <%= link_to "カート", posts_new_path, class: 'nav-link text-light' %>
+        <%= link_to "投稿", posts_new_path, class: 'nav-link text-light' %>
       </li>
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, class: 'nav-link text-light', method: :delete %>
       </li>
     <% elsif admin_signed_in? %>
       <li>
-        <%= link_to "商品一覧", admin_movies_index_path, class: 'nav-link text-light' %>
+        <%= link_to "作品一覧", admin_movies_index_path, class: 'nav-link text-light' %>
       </li>
       <li>
         <%= link_to "会員一覧", admin_users_index_path, class: 'nav-link text-light' %>
       </li>
       <li>
-        <%= link_to "注文履歴一覧", admin_posts_show_path, class: 'nav-link text-light' %>
+        <%= link_to "投稿履歴一覧", admin_posts_show_path, class: 'nav-link text-light' %>
       </li>
       <li>
         <%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-light', method: :delete %>
@@ -55,7 +55,7 @@
         <%= link_to "About", homes_about_path, class: 'nav-link text-light' %>
       </li>
       <li>
-        <%= link_to "商品一覧", movies_index_path, class: 'nav-link text-light' %>
+        <%= link_to "作品一覧", movies_index_path, class: 'nav-link text-light' %>
       </li>
       <li>
         <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-light' %>

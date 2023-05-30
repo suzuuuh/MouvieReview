@@ -1,79 +1,97 @@
-<h2>Sign up</h2>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+     <div class="col-md-8 offset-md-1">
+      <h2>新規登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
 
-        <table class="table">
-          <tbody>
-          <tr>
-            <th>ニックネーム</th>
-            <td>
-              <div class="field">
-                <%= f.text_field :nick_name %>
+              <table class="table">
+                <tbody>
+                <tr>
+                  <th>ニックネーム</th>
+                  <td>
+                    <div class="field">
+                      <%= f.text_field :nick_name %>
+                    </div>
+                  </td>
+                  <td>
+                </tr>
+                <tr>
+                  <th>プロフィール画像</th>
+                  <td>
+                    <div class="field">
+                      <%= f.file_field :profile_image, accept: "profile_image/*" %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>年齢</th>
+                  <td>
+                    <div class="field">
+                      <%= f.text_field :age %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    性別
+                    <%#= f.hidden_field :user_id, :value => current_user.id %>
+                  </th>
+                  <td>
+                    <div class="sex-field">
+                        <%= f.label :male  %>
+                        <%= f.radio_button :sex, :male %>
+                        <%= f.label :female  %>
+                        <%= f.radio_button :sex, :female %>
+                    </div>
+                  </td>
+                  <td>
+                    <%#= f.radio_button :sex, User.sex.key(0) %>
+                    <%#= f.label :sex_male, User.sex_i18n[:male] %>
+                  </td>
+                  <td>
+                    <%#= f.radio_button :sex, User.sex.key(1) %>
+                    <%#= f.label :sex_female, User.sex_i18n[:transfer]%>
+                  </td>
+                </tr>
+                <tr>
+                  <th>メールアドレス</th>
+                  <td>
+                    <div class="field">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    パスワード
+                    <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %>ケタ以上)</em>
+                      <% end %><br />
+                  </th>
+                  <td>
+                    <div class="field">
+                      <%= f.password_field :password, autocomplete: "new-password" %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    パスワード（確認用）
+                  </th>
+                  <td>
+                    <div class="field">
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                    </div>
+                  </td>
+                </tr>
+             </tbody>
+          </table>
+              <div class="actions">
+                <%= f.submit "新規登録" %>
               </div>
-            </td>
-            <td>
-          </tr>
-          <tr>
-            <th>プロフィール画像</th>
-            <td>
-              <div class="field">
-                <%= f.file_field :profile_image, accept: "profile_image/*" %>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th>年齢</th>
-            <td>
-              <div class="field">
-                <%= f.text_field :age %>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th>性別</th>
-            <td>
-              <div class="field">
-                <%= f.text_field :sex %>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th>メールアドレス</th>
-            <td>
-              <div class="field">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              パスワード
-              <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %>ケタ以上)</em>
-                <% end %><br />
-            </th>
-            <td>
-              <div class="field">
-                <%= f.password_field :password, autocomplete: "new-password" %>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              パスワード（確認用）
-            </th>
-            <td>
-              <div class="field">
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-              </div>
-            </td>
-          </tr>
-       </tbody>
-    </table>
-        <div class="actions">
-          <%= f.submit "新規登録" %>
-        </div>
-      <% end %>
+            <% end %>
 
-<%= render "public/shared/links" %>
+      <%= render "public/shared/links" %>
