@@ -1,2 +1,11 @@
-<h1>Public::Movies#index</h1>
-<p>Find me in app/views/public/movies/index.html.erb</p>
+<div class="container" th:fragment="search">
+		<form th:action="@{/movie/search}" method="get">
+			<div class="form-group form-inline input-group-sm">
+			    <label for="name" class="col-md-2 control-label">作品名</label>
+			    <input type="text" class="form-control col-md-5" id="name" name="name" placeholder="作品名">
+			<div class="text-center">
+				<button class="btn btn-sm btn-outline-secondary" type="submit">検索</button>
+			</div>
+		</form>
+		<hr>
+	</div>

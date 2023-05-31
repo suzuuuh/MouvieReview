@@ -17,6 +17,11 @@
   <p class="notice"></p>
     <div class="container">
     <div class="row">
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
           <tr>
             <th>氏名</th>
             <td>

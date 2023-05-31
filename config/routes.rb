@@ -14,38 +14,31 @@ Rails.application.routes.draw do
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   scope module: :public do
-    get 'about'=>'public/homes#about'
-    resources :comments, only: [:new, :confirm, :commplete, :index, :show, :edit]
+    get 'about'=>'homes#about'
+    resources :comments, only: [:new, :index, :show, :edit]
+    post 'commennts/confirm' => 'commennts/confirm'
+    get 'comments/complete'
     resources :movies, only: [:index, :show]
     resources :users, only: [:edit, :show]
-    get 'comments/new'
-    get 'comments/confirm'
-    get 'comments/complete'
-    get 'comments/index'
-    get 'comments/show'
-    get 'comments/edit'
 
-    get 'posts/new'
-    get 'posts/confirm'
+
+    resources :posts, only: [:new, :index, :show, :edit]
+    post 'posts' => 'posts#create'
     get 'posts/complete'
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/edit'
+
     get 'users/show'
     get 'users/edit'
     get 'users/confirm'
-    get 'movies/index'
-    get 'movies/show'
-    get 'homes/top'
-    get 'homes/about'
+
+
   end
 
 
   namespace :admin do
     root to: "homes#top"
-    resources :posts, only: [:show]
+    resources :posts
     resources :users, only: [:index, :show, :edit, :update]
-    resources :movies, only: [:index, :show]
+    resources :movies
 
   end
 
