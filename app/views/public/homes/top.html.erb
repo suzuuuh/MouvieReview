@@ -1,2 +1,54 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<article>
+<div>
+      <img src="images/road.jpg" class="w-100 h-auto">
+  </div>
+
+  <h2 class="text-center m-5 border-bottom p-1">新着映画</h2>
+
+  <div class="container">
+     <section class="row d-flex">
+
+
+  <div class="d-flex flex-wrap">
+    <% @movies.each do |movie| %>
+        <div>
+          <%= link_to movie_path(movie.id) do %>
+          <%#= movie_tag movie.get_image, size: "100x100" %>
+          <a href="#" class="col-md-3 col-sm-8 p-0 m-auto text-decoration-none btn-outline-dark">
+            <img src="images/image3.jpg" alt="" class="w-100">
+            <%= movie.name %>
+            <%= movie.introduction %>
+          </a>
+          </div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+  </section>
+      <p><%= link_to "全ての作品を見る>>", movies_path %></p>
+  </div>
+    </div>
+  </div>
+
+
+
+
+     <section class="row d-flex">
+
+    <a href="#" class="col-md-3 col-sm-8 p-0 m-auto text-decoration-none btn-outline-dark">
+     <img src="images/image3.jpg" alt="" class="w-100">
+     <h3 class="text-center">たいとる</h3>
+     <p class="text-center">サンプルテキストサンプルテキストサンプルテキスト</p>
+    </a>
+    <a href="#" class="col-md-3 col-sm-8 p-0 m-auto text-decoration-none btn-outline-dark">
+     <img src="images/image.jpg" alt="" class="w-100">
+     <h3 class="text-center">たいとる</h3>
+     <p class="text-center">サンプルテキストサンプルテキストサンプルテキスト</p>
+    </a>
+    <a href="#" class="col-md-3 col-sm-8 p-0 m-auto text-decoration-none btn-outline-dark">
+     <img src="images/image2.jpg" alt="" class="w-100">
+     <h3 class="text-center">たいとる</h3>
+     <p class="text-center">サンプルテキストサンプルテキストサンプルテキスト</p>
+    </a>
+     </section>
+    </div>
