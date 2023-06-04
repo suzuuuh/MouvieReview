@@ -1,11 +1,28 @@
-<div class="container" th:fragment="search">
-		<form th:action="@{/movie/search}" method="get">
-			<div class="form-group form-inline input-group-sm">
-			    <label for="name" class="col-md-2 control-label">作品名</label>
-			    <input type="text" class="form-control col-md-5" id="name" name="name" placeholder="作品名">
-			<div class="text-center">
-				<button class="btn btn-sm btn-outline-secondary" type="submit">検索</button>
-			</div>
-		</form>
-		<hr>
-	</div>
+<p id="notice"></p>
+
+
+	<div class="search_form container text-center">
+    <%= form_with url: search_path, local: true, method: :get do |f| %>
+    <label for="name" class="col-md-1 control-label">作品名</label>
+      <%= f.text_field :word %>
+      <%= f.submit "検索", class: "btn btn-sm btn-outline-secondary" %>
+    <% end %>
+  </div>
+
+	<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h3>作品一覧(全<%= Movie.count %>件）</h3>
+      <div class="d-flex flex-wrap">
+        <% @movies.each do |movie| %>
+        <div class="col-md-2">
+          <%= link_to movie_path(movie.id) do %>
+          <p><%= movie.name %></p>
+          <p><%= movie.introduction %></p>
+          <% end %>
+        </div>
+        <% end %>
+
+      </div>
+      <%#= paginate @movies %>
