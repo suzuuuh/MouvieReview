@@ -17,11 +17,13 @@
           <%= f.submit %>
         <% end %>
       </div>
-      <div>
+      <div class="inverse">
         <% if @posts.any? %>
           <% @posts.each do |post| %>
+            <%= link_to post_path(post.id) do %>
             投稿者:<%= post.user.nick_name %><br>
             内容:<%= post.review %><br>
+            <% end %>
             <hr>
           <% end %>
         <% end %>

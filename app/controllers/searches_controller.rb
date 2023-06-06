@@ -1,6 +1,10 @@
 class SearchesController < ApplicationController
   before_action :authenticate_user!, except: [:search]
 
+  def index
+    @movies = Movie.all
+  end
+
   def search
     @range = params[:range]
     @range = "Movie"
