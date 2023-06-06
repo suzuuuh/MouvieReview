@@ -1,16 +1,21 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @user = current_user
+    @movie = Movie.find(params[:movie_id])
   end
 
   def create
-    @movie = Movie.new(movie_params)
-    @movie.user_id = current_user.id
-    if @movie.save
-    flash[:notice] = "You have created movie successfully."
-    redirect_to movies_path
+    @post = current_user.posts.build(post_params)
+    @movie = @post.movie
+    if @post.save
+      flash[:notice] = "You have created movie successfully."
+      redirect_to movie_path(@movie)
     else
-      render :index
+      @posts = @movie.posts
+      flash.now[:alert] = "faild"
+      render 'public/movies/show'
     end
   end
 
@@ -31,9 +36,7 @@ class Public::PostsController < ApplicationController
 
   private
 
-  def movie_params
-    params.require(:movie).permit(:name, :introdction)
+  def post_params
+    params.require(:post).permit(:review, :movie_id)
   end
-
-
 end

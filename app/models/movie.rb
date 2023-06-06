@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+    has_many :posts
 
     def self.looks(search, word)
         where("name LIKE?","%#{word}%")

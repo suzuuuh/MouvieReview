@@ -7,4 +7,5 @@ class User < ApplicationRecord
   enum sex: { male: 0, female: 1 }
   has_one_attached :profile_image
   
+  has_many :posts
 end

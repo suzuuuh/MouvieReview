@@ -21,9 +21,7 @@ Rails.application.routes.draw do
     resources :movies, only: [:index, :show]
     resources :users, only: [:edit, :show]
 
-
-    resources :posts, only: [:new, :index, :show, :edit]
-    post 'posts' => 'posts#create'
+    resources :posts, only: [:create, :show, :edit, :update, :destroy]
     get 'posts/complete'
 
     get 'users/show'
