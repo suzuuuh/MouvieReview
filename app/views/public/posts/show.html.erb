@@ -1,2 +1,49 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    	<article>
+        <h2 class="text-center m-5 border-bottom p-1 color:blue;">
+          <%= @movie.name %>
+        </h2>
+        <h5 class="font-size:1em; m-5 text-center">
+          <%= @movie.introduction %>
+        </h5>
+
+                <h5 class="font-size:1em; m-5 text-center">
+                    投稿者:<%= @post.user.nick_name %>
+                </h5>
+                <h5 class="font-size:1em; m-5 text-center">
+                    レビュー:<%= @post.review %>
+                </h5>
+
+
+      </article>
+      <div>
+        <%= form_with model: @comment, url: post_comments_path(@post), local: true do |f| %>
+          <%= f.hidden_field :post_id, value: @post.id %>
+          <%= f.text_area :comment %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+      <div class="inverse">
+          <% if @comment.errors.any? %>
+              <%= @comment.errors.count %>件のエラーが発生しました
+              <ul>
+                <% @comment.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            <% end %>
+        <% if @comments.any? %>
+          <% @comments.each do |comment| %>
+            投稿者:<%= comment.user.nick_name %><br>
+            コメント:<%= comment.comment %><br>
+            <hr>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

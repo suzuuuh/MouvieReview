@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def new
     @user = current_user
@@ -29,6 +29,10 @@ class Public::PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @movie = @post.movie
+    @comment = Comment.new(post_id: @post.id)
+    @comments = @post.comments
   end
 
   def edit

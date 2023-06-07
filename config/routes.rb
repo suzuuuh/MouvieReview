@@ -15,13 +15,14 @@ Rails.application.routes.draw do
 
   scope module: :public do
     get 'about'=>'homes#about'
-    resources :comments, only: [:new, :index, :show, :edit]
-    post 'commennts/confirm' => 'commennts/confirm'
-    get 'comments/complete'
     resources :movies, only: [:index, :show]
     resources :users, only: [:edit, :show]
 
-    resources :posts, only: [:create, :index, :show, :edit, :update, :destroy]
+    resources :posts do
+      resources :comments, only: [:new, :index, :show, :edit, :create]
+      post 'commennts/confirm' => 'commennts/confirm'
+      get 'comments/complete'
+    end
     get 'posts/complete'
 
     get 'users/show'
