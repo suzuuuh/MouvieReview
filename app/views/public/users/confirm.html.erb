@@ -1,2 +1,18 @@
-<h1>Public::Users#confirm</h1>
-<p>Find me in app/views/public/users/confirm.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-20 col-md-5 col-lg-5 px-8 px-sm-0 mx-auto mt-10">
+      <%= form_with model: @user,url: user_withdraw_path, method: :patch do |f| %>
+        <p class="d-flex text-center justify-content-center 13px">
+            本当に退会しますか？</br>
+            退会すると、レビュー投稿ができなくなります。</br>
+            退会する場合は、「退会する」をクリックしてください。</br>
+        </p>
+        <div class="d-flex flex-nowrap center">
+        <%= link_to "退会しない", user_path(@user), class:"btn btn-success btn-sm" %>
+        <div class="form-group">
+          <%= f.submit "退会する", class:"btn btn-danger btn-sm", "data-confirm" =>"本当に退会しますか？" %>
+        </div>
+        </div>
+
+        <% end %>

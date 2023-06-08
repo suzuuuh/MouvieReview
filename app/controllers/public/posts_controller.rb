@@ -26,6 +26,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
+    @post = current_user.posts
   end
 
   def show

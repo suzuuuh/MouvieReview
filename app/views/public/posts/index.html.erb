@@ -1,2 +1,35 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-15 col-md-12 col-lg-10 px-5 px-sm-8 mx-auto">
+      <h3>投稿履歴一覧</h3>
+        <table width="300" class="table">
+          <thead>
+            <th>投稿日</th>
+            <th>レビュー投稿した作品</th>
+            <th>レビュー内容</th>
+          </thead>
+          <tbody>
+          <% @post.each do |post| %>
+            <tr>
+              <td>
+                <%= post.created_at.strftime('%Y/%m/%d') %>
+              </td>
+              <td>
+                <%= post.movie.name %>
+              </td>
+              <td>
+                <%= post.review %>
+  			      </td>
+              <td>
+                <div class="form-group">
+                  <%= link_to "表示する", post_path(post.id), class:"btn btn-primary btn-sm" %>
+                </div>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
