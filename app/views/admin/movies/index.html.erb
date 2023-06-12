@@ -1,2 +1,34 @@
-<h1>Admin::Movies#index</h1>
-<p>Find me in app/views/admin/movies/index.html.erb</p>
+<p id="notice"></p>
+ <div class="col-md-10 offset-md-1">
+          <h2>作品一覧</h2>
+          <div>
+            <%= link_to "+", new_admin_movie_path, class:"btn btn-primary rounded-circle p-0 pull-right", style:"width:2rem;height:2rem; float:right;" %>
+          </div>
+          <table class="table">
+      <thead>
+        <tr>
+          <th>作品ID</th>
+          <th>作品名</th>
+          <th>あらすじ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @movies.each do |movie| %>
+          <tr>
+            <td>
+              <%= movie.id %>
+            </td>
+            <td>
+              <%= link_to movie.name,admin_movie_path(movie.id) %>
+            </td>
+            <td>
+              <%= movie.introduction %>
+            </td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+   </div>
+
+

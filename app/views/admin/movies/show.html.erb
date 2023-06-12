@@ -1,2 +1,26 @@
-<h1>Admin::Movies#show</h1>
-<p>Find me in app/views/admin/movies/show.html.erb</p>
+<p id="notice"></p>
+<div class="col-md-8 offset-md-1">
+    <h2>作品詳細</h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>
+                作品名
+              </th>
+              <td>
+                <%= @movie.name %>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                作品あらすじ
+              </th>
+              <td>
+                <%= @movie.introduction %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <%= link_to "編集する", edit_admin_movie_path(@movie), class:"btn btn-sm btn-success" %>
+</div>
