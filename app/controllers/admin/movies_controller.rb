@@ -2,6 +2,7 @@ class Admin::MoviesController < ApplicationController
   before_action :authenticate_admin!
   def index
     @movies = Movie.all
+    @movie = Movie.find(params[:id])
   end
 
   def show
@@ -10,6 +11,7 @@ class Admin::MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @genres = Genre.all
   end
 
   def create
@@ -25,7 +27,7 @@ class Admin::MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:name, :introduction)
+    params.require(:movie).permit(:name, :introduction, :genre_id)
   end
 
 

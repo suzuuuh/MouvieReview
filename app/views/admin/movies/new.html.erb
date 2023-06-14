@@ -20,6 +20,12 @@
                   <%= f.text_field :introduction %>
                   </td>
                 </tr>
+                <tr>
+                  <th>ジャンル</th>
+                  <td>
+                  <%= f.collection_select(:genre_id, @genres, :id, :name ) %>
+                  </td>
+                </tr>
               </tbody>
             </table>
 

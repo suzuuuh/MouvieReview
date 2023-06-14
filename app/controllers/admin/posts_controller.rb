@@ -1,6 +1,10 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
   def show
+    @post = Post.find(params[:id])
+    @movie = @post.movie
+    @comment = Comment.new(post_id: @post.id)
+    @comments = @post.comments
   end
 
   def new

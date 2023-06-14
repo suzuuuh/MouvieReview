@@ -1,2 +1,32 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    	<p class="border border-primary">
+        <h2 class="text-center m-5 border-bottom p-1 color:blue;">
+          <%= @movie.name %>
+        </h2>
+        <h5 class="font-size:1em; m-5 text-center">
+          <%= @movie.introduction %>
+        </h5>
+      </p>
+        <h5 class="font-size:1em; m-5 text-center">
+          レビュー:<%= @post.review %>
+        </h5>
+      </article>
+      <div class="inverse m-5 text-center">
+        <% if @comments.any? %>
+          <% @comments.each do |comment| %>
+            投稿者:<%= comment.user.nick_name %><br>
+            コメント:<%= comment.comment %><br>
+            <%= link_to "削除", admin_post_path(@post.id), class:"btn btn-danger btn-sm", method: :delete, data: {confirm: "本当に削除しますか？"} %><br>
+            <% end %>
+            <hr>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

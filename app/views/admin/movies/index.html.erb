@@ -10,6 +10,8 @@
           <th>作品ID</th>
           <th>作品名</th>
           <th>あらすじ</th>
+          <th>ジャンル</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +26,9 @@
             <td>
               <%= movie.introduction %>
             </td>
+            <% @movie.genres.each do |genre| %>
+              <%= genre.name %>
+            <% end %>
             <td></td>
           </tr>
         <% end %>
