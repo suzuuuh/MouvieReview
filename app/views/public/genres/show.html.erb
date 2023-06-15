@@ -1,0 +1,23 @@
+<div class="movie-index-box">
+
+    <!-- ジャンル選択のサイドバー -->
+    <%#= render "movies/genres_sidebar", genres: @genres %>
+    <!-- ジャンル選択のサイドバー -->
+    <div class="movie-index">
+    <h3>作品一覧</h3>
+        <table>
+          <tbody>
+            <tr class="item-box">
+              <% @genre.movies.each do |movie| %>
+                <td class="item">
+                    <%= link_to movie_path(movie) do %>
+                      <%= movie.name %><br>
+                      <%= movie.introduction %>
+                    <% end %>
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>

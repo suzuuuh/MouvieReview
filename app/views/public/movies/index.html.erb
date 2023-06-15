@@ -7,7 +7,14 @@
       <%= f.text_field :word %>
       <%= f.submit "検索", class: "btn btn-sm btn-outline-secondary" %>
     <% end %>
+    <% Genre.all.each do |genre| %>
+      <%= link_to genre_path(genre.id) do %>
+        <%= genre.name %>
+      <% end %>
+    <% end %>
   </div>
+
+
 
 	<p id="notice"></p>
 <div class="container">

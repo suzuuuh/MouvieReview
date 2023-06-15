@@ -10,10 +10,11 @@
           <%= @movie.introduction %>
         </h5>
       </article>
-      <div>
+      <div class="text-center">
+        <p>レビューを投稿する</p>
         <%= form_with model: @post, local: true do |f| %>
           <%= f.hidden_field :movie_id %>
-          <%= f.text_area :review %>
+          <%= f.text_area :review %><br>
           <%= f.submit %>
         <% end %>
       </div>
@@ -32,6 +33,9 @@
             投稿者:<%= post.user.nick_name %><br>
             内容:<%= post.review %><br>
             <% end %>
+            <div class="text-right">
+              <%= link_to "編集", edit_post_path %>|<%= link_to "削除", post_path, method: :delete %>
+            </div>
             <hr>
           <% end %>
         <% end %>

@@ -2,7 +2,6 @@ class Admin::MoviesController < ApplicationController
   before_action :authenticate_admin!
   def index
     @movies = Movie.all
-    @movie = Movie.find(params[:id])
   end
 
   def show
@@ -14,6 +13,10 @@ class Admin::MoviesController < ApplicationController
     @genres = Genre.all
   end
 
+  def edit
+    @genres = Genre.all
+  end
+
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
@@ -22,6 +25,10 @@ class Admin::MoviesController < ApplicationController
     else
       render :index
     end
+  end
+
+  def update
+
   end
 
   private

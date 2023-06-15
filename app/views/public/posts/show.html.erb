@@ -19,10 +19,11 @@
 
 
       </article>
-      <div>
+      <div class="text-center">
+        <p>コメントを投稿する</p>
         <%= form_with model: @comment, url: post_comments_path(@post), local: true do |f| %>
           <%= f.hidden_field :post_id, value: @post.id %>
-          <%= f.text_area :comment %>
+          <%= f.text_area :comment %><br>
           <%= f.submit %>
         <% end %>
       </div>
@@ -39,6 +40,9 @@
           <% @comments.each do |comment| %>
             投稿者:<%= comment.user.nick_name %><br>
             コメント:<%= comment.comment %><br>
+            <div class="text-right">
+              <%= link_to "編集", edit_post_comment_path %>|<%= link_to "削除", comment_path, method: :delete %>
+            </div>
             <hr>
           <% end %>
         <% end %>

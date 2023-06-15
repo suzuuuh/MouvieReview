@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'users/confirm' => 'users/confirm'
     patch 'users/withdraw' => 'users/withdraw', as: :user_withdraw
     resources :users, only: [:edit, :show, :update]
-
+    resources :genres, only: [:show]
 
     resources :posts do
       resources :comments, only: [:new, :index, :show, :edit, :create]

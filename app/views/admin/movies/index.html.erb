@@ -26,10 +26,9 @@
             <td>
               <%= movie.introduction %>
             </td>
-            <% @movie.genres.each do |genre| %>
-              <%= genre.name %>
-            <% end %>
-            <td></td>
+            <td>
+            <%= movie.genre.name %>
+            </td>
           </tr>
         <% end %>
       </tbody>
