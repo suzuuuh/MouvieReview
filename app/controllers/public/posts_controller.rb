@@ -37,11 +37,34 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+    @post = current_user.posts.build(post_params)
+    @user = @post.user
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+  if post.user_id == current_user.id
+   post.destroy
+  end
+  redirect_back(fallback_location: root_path)
+  end
+
+  def update
+    @post = current_user.posts.build(post_params)
+    @movie = @post.movie
+    if @post.update(post_params)
+      flash[:notice] = "You have created movie successfully."
+      redirect_to movie_path(@movie)
+    else
+      @posts = @movie.posts
+      flash.now[:alert] = "faild"
+      render 'public/movies/show'
+    end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:review, :movie_id)
+    params.require(:post).permit(:review, :movie_id,)
   end
 end

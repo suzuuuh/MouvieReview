@@ -34,7 +34,7 @@
             内容:<%= post.review %><br>
             <% end %>
             <div class="text-right">
-              <%= link_to "編集", edit_post_path %>|<%= link_to "削除", post_path, method: :delete %>
+              <%= link_to "編集", edit_post_path %>|<%= link_to "削除", post_path(post.id), "data-confirm" =>"本当に削除しますか？", method: :delete %>
             </div>
             <hr>
           <% end %>

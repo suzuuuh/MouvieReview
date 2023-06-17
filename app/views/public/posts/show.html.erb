@@ -41,7 +41,7 @@
             投稿者:<%= comment.user.nick_name %><br>
             コメント:<%= comment.comment %><br>
             <div class="text-right">
-              <%= link_to "編集", edit_post_comment_path %>|<%= link_to "削除", comment_path, method: :delete %>
+              <%= link_to "編集", edit_comment_path(comment) %>|<%= link_to "削除", comment_path(comment), method: :delete %>
             </div>
             <hr>
           <% end %>

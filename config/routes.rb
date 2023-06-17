@@ -21,8 +21,10 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :show, :update]
     resources :genres, only: [:show]
 
+    delete 'posts/:id' => 'posts#destroy'
+    resources :comments, only: [:edit, :update, :destroy]
     resources :posts do
-      resources :comments, only: [:new, :index, :show, :edit, :create]
+      resources :comments, only: [:new, :index, :show, :create]
       post 'commennts/confirm' => 'commennts/confirm'
       get 'comments/complete'
     end
