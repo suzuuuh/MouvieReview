@@ -14,6 +14,7 @@ class Admin::MoviesController < ApplicationController
   end
 
   def edit
+    @movie = Movie.find(params[:id])
     @genres = Genre.all
   end
 
@@ -28,7 +29,13 @@ class Admin::MoviesController < ApplicationController
   end
 
   def update
-
+    @movie = Movie.find(params[:id])
+    if @movie.update(movie_params)
+      flash[:notice] = "You have created movie successfully."
+      redirect_to movie_path(@movie)
+    else
+      render 'admin/movies/show'
+    end
   end
 
   private
