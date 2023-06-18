@@ -7,7 +7,8 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
     @movie = @post.movie
     if @post.save
       flash[:notice] = "You have created movie successfully."
@@ -37,8 +38,12 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
-    @post = current_user.posts.build(post_params)
+    @post = Post.find(params[:id])
+    if @post.user_id != current_user.id
+      redirect_to root_path
+    end
     @user = @post.user
+    @movie = @post.movie
   end
 
   def destroy
@@ -50,7 +55,7 @@ class Public::PostsController < ApplicationController
   end
 
   def update
-    @post = current_user.posts.build(post_params)
+    @post = Post.find(params[:id])
     @movie = @post.movie
     if @post.update(post_params)
       flash[:notice] = "You have created movie successfully."
@@ -65,6 +70,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:review, :movie_id,)
+    params.require(:post).permit(:review, :movie_id)
   end
 end

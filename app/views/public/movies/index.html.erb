@@ -1,6 +1,6 @@
 <p id="notice"></p>
 
-
+ <div class="border col-8 mx-auto"><br>
 	<div class="search_form container text-center">
     <%= form_with url: search_path, local: true, method: :get do |f| %>
     <label for="name" class="col-md-2 control-label">作品名</label>
@@ -12,6 +12,7 @@
         <%= genre.name %>
       <% end %>
     <% end %>
+  </div><br>
   </div>
 
 
@@ -19,14 +20,14 @@
 	<p id="notice"></p>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h3>作品一覧(全<%= Movie.count %>件）</h3>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto"><br>
+      <h3>作品一覧(全<%= Movie.count %>件）</h3><br>
       <div class="d-flex flex-wrap">
         <% @movies.each do |movie| %>
         <div class="col-md-2">
           <%= link_to movie_path(movie.id) do %>
-          <p><%= movie.name %></p>
-          <p><%= movie.introduction %></p>
+          <h4><%= movie.name %></h4>
+          <%= movie.introduction %>
           <% end %>
         </div>
         <% end %>

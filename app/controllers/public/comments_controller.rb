@@ -17,6 +17,12 @@ class Public::CommentsController < ApplicationController
   end
 
   def edit
+    @comment = Comment.find(params[:id])
+    if @comment.user_id != current_user.id
+      redirect_to root_path
+    end
+    @user = @comment.user
+    @movie = @comment.post.movie
   end
 
   def create
@@ -39,6 +45,19 @@ class Public::CommentsController < ApplicationController
       comment.destroy
     end
     redirect_back(fallback_location: root_path)
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    @movie = @comment.post.movie
+    if @comment.update(comment_params)
+      flash[:notice] = "You have created movie successfully."
+      redirect_to post_path(@comment.post.id)
+    else
+      @comments = @movie.posts
+      flash.now[:alert] = "faild"
+      render 'public/movies/show'
+    end
   end
 
   private

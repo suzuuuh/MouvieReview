@@ -10,14 +10,14 @@
           <%= @movie.introduction %>
         </h5>
       </article>
-      <div class="text-center">
+      <div class="border col-8 text-center mx-auto"><br>
         <p>レビューを投稿する</p>
         <%= form_with model: @post, local: true do |f| %>
           <%= f.hidden_field :movie_id %>
           <%= f.text_area :review %><br>
           <%= f.submit %>
-        <% end %>
-      </div>
+        <% end %><br>
+      </div><br>
       <div class="inverse">
         <% if @post.errors.any? %>
               <%= @post.errors.count %>件のエラーが発生しました
@@ -34,7 +34,9 @@
             内容:<%= post.review %><br>
             <% end %>
             <div class="text-right">
-              <%= link_to "編集", edit_post_path %>|<%= link_to "削除", post_path(post.id), "data-confirm" =>"本当に削除しますか？", method: :delete %>
+              <% if post.user_id == current_user.id %>
+                <%= link_to "編集", edit_post_path(post) %>|<%= link_to "削除", post_path(post.id), "data-confirm" =>"本当に削除しますか？", method: :delete %>
+              <% end %>
             </div>
             <hr>
           <% end %>

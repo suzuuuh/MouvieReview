@@ -1,2 +1,40 @@
-<h1>Public::Comments#edit</h1>
-<p>Find me in app/views/public/comments/edit.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-7 mx-auto">
+      <h4>コメント編集</h4>
+      <%= form_with model: @comment, url: comment_path(@comment), method: :put do |f| %>
+        <table class="table">
+              <tbody>
+              	<tr>
+                  <th>
+                  	ニックネーム
+                  </th>
+                  <td>
+                  	<%= @user.nick_name %>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    作品名
+                  </th>
+                  <td>
+                  <%= @movie.name %>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    コメント
+                  </th>
+                  <td>
+                  	<%= f.text_field :comment %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="form-group">
+              <%= f.submit '変更を保存', class:"btn btn-success" %>
+              </div>
+            <% end %>
+
