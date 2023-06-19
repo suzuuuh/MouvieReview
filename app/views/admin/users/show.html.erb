@@ -64,7 +64,7 @@
                     <%= link_to "編集する ", edit_admin_user_path, class:"btn btn-outline-primary btn-sm" %>
                   </div>
                   <div class="form-group">
-                    <%= link_to "投稿履歴一覧を見る", admin_post_path, class:"btn btn-outline-success btn-sm" %>
+                    <%= link_to "投稿履歴一覧を見る", admin_posts_path(id: @user.id), class:"btn btn-outline-success btn-sm" %>
                   </div>
                 </div>
               </div>

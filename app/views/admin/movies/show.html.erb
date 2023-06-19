@@ -19,8 +19,18 @@
                 <%= @movie.introduction %>
               </td>
             </tr>
+            <tr>
+              <th>
+                ジャンル
+              </th>
+              <td>
+                <%= @movie.genre.name %>
+              </td>
+            </tr>
           </tbody>
         </table>
 
         <%= link_to "編集する", edit_admin_movie_path(@movie), class:"btn btn-sm btn-success" %>
+        <%= link_to "削除する", admin_movie_path(@movie), class:"btn btn-sm btn-success", method: :delete, data: {confirm: "本当に削除しますか？"} %>
+
 </div>

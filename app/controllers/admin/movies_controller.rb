@@ -22,7 +22,7 @@ class Admin::MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
     if @movie.save
     flash[:notice] = "You have created movie successfully."
-    redirect_to movies_path
+    redirect_to admin_movies_path
     else
       render :index
     end
@@ -32,10 +32,16 @@ class Admin::MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     if @movie.update(movie_params)
       flash[:notice] = "You have created movie successfully."
-      redirect_to movie_path(@movie)
+      redirect_to admin_movie_path(@movie)
     else
       render 'admin/movies/show'
     end
+  end
+
+  def destroy
+    movie = Movie.find(params[:id])
+    movie.destroy
+    redirect_to admin_movies_path
   end
 
   private

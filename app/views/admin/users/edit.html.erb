@@ -1,2 +1,63 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+
+        <h2><%= @user.nick_name %>さんの会員情報編集</h2>
+
+         <%= form_with model: @user,url: admin_user_path(@user.id), method: :patch do |f| %>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>
+                      会員ID
+                    </td>
+                    <td>
+                      <%= @user.id %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      氏名
+                    </td>
+                    <td>
+                      <%= f.text_field :nick_name, autofocus: true, class:"form-control name"%>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      年齢
+                    </td>
+                    <td>
+                      <%= f.text_field :age, autofocus: true, class:"form-control age"%>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      性別
+                    </td>
+                    <td>
+                      <%= f.text_field :sex, autofocus: true, class:"form-control name"%>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      会員ステータス
+                    </td>
+                    <td>
+                      <%= f.radio_button :is_deleted, false %>
+                      <%= f.label :is_deleted, "有効", class: "text-active" %>
+                    </td>
+                    <td>
+                      <%= f.radio_button :is_deleted, true %>
+                      <%= f.label :is_deleted, "退会済み", class: "text-active" %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+              <div class="form-group">
+                <%= f.submit "変更内容を保存", class:"btn btn-secondary" %>
+              </div>
+        <% end %>

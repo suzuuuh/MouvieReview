@@ -11,6 +11,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def index
+    @posts = User.find(params[:id]).posts
   end
 
   def destroy
