@@ -28,13 +28,14 @@
               </ul>
             <% end %>
         <% if @posts.any? %>
+        <h1>hello world</h1>
           <% @posts.each do |post| %>
             <%= link_to post_path(post.id) do %>
             投稿者:<%= post.user.nick_name %><br>
             内容:<%= post.review %><br>
             <% end %>
             <div class="text-right">
-              <% if post.user_id == current_user.id %>
+              <% if current_user && post.user_id == current_user.id %>
                 <%= link_to "編集", edit_post_path(post) %>|<%= link_to "削除", post_path(post.id), "data-confirm" =>"本当に削除しますか？", method: :delete %>
               <% end %>
             </div>

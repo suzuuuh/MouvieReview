@@ -7,7 +7,7 @@
 
   <h2 class="text-center m-5 border-bottom p-1">新着映画</h2>
 
-  <div class="container">
+  <div class="container" style="text-align: center;">
      <section class="row d-flex">
 
 
@@ -16,7 +16,7 @@
         <div>
           <%= link_to movie_path(movie.id) do %>
           <%#= movie_tag movie.get_image, size: "100x100" %>
-          <div class="col-md-3 col-sm-8 p-0 m-auto text-decoration-none btn-outline-dark">
+          <div class="col-8 p-0 m-auto text-decoration-none btn-outline-dark">
             <p><%= movie.name %></p>
             <p><%= movie.introduction %></p>
           </div>
@@ -27,7 +27,8 @@
 
 </section>
     <p class="notice"></p>
-      <p><%= link_to "全ての作品を見る>>", movies_path, class: "text-center m-5" %></p>
+      <!--<div class=""-->
+      <%= link_to "全ての作品を見る>>", movies_path, class: "text-center col-8 m-auto" %></p>
   </div>
     </div>
   </div>

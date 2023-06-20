@@ -3,6 +3,7 @@
   <div class="row">
      <div class="col-md-8 offset-md-1">
       <h4>ログイン</h4>
+      <p>会員の方のみレビュー投稿ができます。</p><br>
       <p>会員の方はこちらからログイン</p>
 
 
@@ -32,4 +33,12 @@
       <% end %>
 
 
-<%= render "public/shared/links" %>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-5">
+    <h5>会員登録がお済みでない方</h5>
+    <p><%= link_to "こちら", new_user_registration_path %>から新規登録を行ってください</p>
+  </div>
+</div>
+</div>
