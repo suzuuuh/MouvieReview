@@ -2,15 +2,17 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    	<article>
+      <div class="border border-warning">
+    	 <article>
         <h2 class="text-center m-5 border-bottom p-1 color:blue;">
           <%= @movie.name %>
         </h2>
         <h5 class="font-size:1em; m-5 text-center">
           <%= @movie.introduction %>
         </h5>
-      </article>
-      <div class="border col-8 text-center mx-auto"><br>
+        </article>
+      </div>
+      <div class="col-8 text-center mx-auto"><br>
         <p>レビューを投稿する</p>
         <%= form_with model: @post, local: true do |f| %>
           <%= f.hidden_field :movie_id %>
@@ -28,7 +30,6 @@
               </ul>
             <% end %>
         <% if @posts.any? %>
-        <h1>hello world</h1>
           <% @posts.each do |post| %>
             <%= link_to post_path(post.id) do %>
             投稿者:<%= post.user.nick_name %><br>

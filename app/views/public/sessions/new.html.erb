@@ -1,6 +1,7 @@
 <p id="notice"></p>
-<div class="container d-flex">
-     <div class="col-8 offset-md-3">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-2 col-12">
       <h4>ログイン</h4>
       <p>会員の方のみレビュー投稿ができます。</p><br>
       <p>会員の方はこちらからログイン</p>
@@ -15,7 +16,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :password, "パスワード  " %>
+          <%= f.label :password, "パスワード  " %><br>
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
 
@@ -30,15 +31,9 @@
           <%= f.submit "ログイン" %>
         </div>
       <% end %>
-      </div>
-
-
-<p id="notice"></p>
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-md-5">
-    <h4>会員登録がお済みでない方</h4>
+    </div>
+    <div class="col-12 col-md-4">
+    <h5 style="text-wrap: nowrap">会員登録がお済みでない方</h5>
     <p><%= link_to "こちら", new_user_registration_path %>から新規登録を行ってください</p>
   </div>
-</div>
 </div>

@@ -2,24 +2,23 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    	<article>
+      <div class="border border-warning">
+    	 <article>
         <h2 class="text-center m-5 border-bottom p-1 color:blue;">
           <%= @movie.name %>
         </h2>
         <h5 class="font-size:1em; m-5 text-center">
           <%= @movie.introduction %>
         </h5>
-
-                <div class="font-size:1em; m-5 text-center">
-                    <h5>投稿者</h5>
-                    <h6><%= @post.user.nick_name %></h6><br>
-                <h5>レビュー</h5>
-                    <h6><%= @post.review %></h6>
-                </div>
-
-
+          <div class="font-size:1em; m-5 text-center">
+            <h5>投稿者</h5>
+            <h6><%= @post.user.nick_name %></h6><br>
+            <h5>レビュー</h5>
+            <h6><%= @post.review %></h6>
+          </div>
       </article>
-      <div class="border col-8 text-center mx-auto"><br>
+      </div>
+      <div class="col-8 text-center mx-auto"><br>
         <p>コメントを投稿する</p>
         <%= form_with model: @comment, url: post_comments_path(@post), local: true do |f| %>
           <%= f.hidden_field :post_id, value: @post.id %>

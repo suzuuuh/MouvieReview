@@ -41,7 +41,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :posts
-    resources :users, only: [:index, :show, :edit, :update]
+    patch 'users/withdraw' => 'users/withdraw', as: :user_withdraw
+    get 'users/confirm'
+    resources :users, only: [:index, :show, :edit, :update, :withdraw]
     resources :movies
 
   end

@@ -8,11 +8,9 @@
     <div class="row">
     <table class="table">
       <tbody>
-        <h6>登録情報</h6>
 
-          <div class="form-group">
-            <%= link_to "編集する ", edit_user_path, class:"btn btn-outline-primary btn-sm" %>
-          </div>
+
+
 
   <p class="notice"></p>
     <div class="container">
@@ -53,13 +51,14 @@
     </table>
 
     <p class="notice"></p>
-      <div class="container">
-        <div class="row">
-          <h6>投稿履歴</h6>
+      <div class="container row mx-auto d-flex flex-nowrap">
+          <h5>投稿履歴</h5>
             <div class="form-group">
               <%= link_to "一覧を見る", posts_path, class:"btn btn-outline-success btn-sm" %>
             </div>
-        </div>
+      <h5>登録情報</h5>
+      <div class="form-group">
+        <%= link_to "編集する ", edit_user_path, class:"btn btn-outline-primary btn-sm" %>
       </div>
     </div>
   </div>
