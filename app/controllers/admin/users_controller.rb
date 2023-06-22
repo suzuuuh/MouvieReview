@@ -13,7 +13,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def confirm
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def update
@@ -27,7 +27,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def withdraw
-    user = User.find(params[:id])
+    @user = User.find(params[:id])
     @users = User.all
     @user.update(is_deleted: true)
     render :index

@@ -1,5 +1,5 @@
 <p id="notice"></p>
-<div class="col-md-8 offset-md-1">
+<div class="col-md-8 offset-md-1 mx-auto">
     <h2>作品詳細</h2>
         <table class="table">
           <tbody>
@@ -29,8 +29,8 @@
             </tr>
           </tbody>
         </table>
-
-        <%= link_to "編集する", edit_admin_movie_path(@movie), class:"btn btn-sm btn-success" %>
-        <%= link_to "削除する", admin_movie_path(@movie), class:"btn btn-sm btn-success", method: :delete, data: {confirm: "本当に削除しますか？"} %>
-
+        <div class="text-center">
+          <%= link_to "編集する", edit_admin_movie_path(@movie), class:"btn btn-sm btn-success" %>
+          <%= link_to "削除する", admin_movie_path(@movie), class:"btn btn-sm btn-success", method: :delete, data: {confirm: "本当に削除しますか？"} %>
+        </div>
 </div>

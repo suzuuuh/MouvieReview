@@ -4,12 +4,11 @@
     <div class="col-sm-20 col-md-5 col-lg-5 px-8 px-sm-0 mx-auto mt-10">
       <%= form_with model: @user,url: admin_user_withdraw_path(id: @user.id), method: :patch do |f| %>
         <p class="d-flex text-center justify-content-center 13px">
-            本当に退会しますか？</br>
-            退会すると、レビュー投稿ができなくなります。</br>
-            退会する場合は、「退会する」をクリックしてください。</br>
+            本当に退会させますか？</br>
+            退会させる場合は、「退会する」をクリックしてください。</br>
         </p>
         <div class="d-flex flex-nowrap center" style="justify-content: center; align-items: flex-start;">
-          <%= link_to "退会させない", user_path(@user), class:"btn btn-success btn-sm" %>
+          <%= link_to "退会させない", admin_user_path(@user), class:"btn btn-success btn-sm" %>
           <div class="form-group">
             <%= f.submit "退会させる", class:"btn btn-danger btn-sm", "data-confirm" =>"本当に退会させますか？" %>
           </div>

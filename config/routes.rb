@@ -42,8 +42,10 @@ Rails.application.routes.draw do
     root to: "homes#top"
     resources :posts
     patch 'users/withdraw' => 'users/withdraw', as: :user_withdraw
-    get 'users/confirm'
-    resources :users, only: [:index, :show, :edit, :update, :withdraw]
+    # get 'users/confirm'
+    resources :users, only: [:index, :show, :edit, :update, :withdraw] do
+      get :confirm
+    end
     resources :movies
 
   end
