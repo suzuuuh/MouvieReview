@@ -1,23 +1,19 @@
-<div class="movie-index-box">
-
-    <!-- ジャンル選択のサイドバー -->
-    <%#= render "movies/genres_sidebar", genres: @genres %>
-    <!-- ジャンル選択のサイドバー -->
-    <div class="movie-index">
-    <h3>作品一覧</h3>
-        <table>
-          <tbody>
-            <tr class="item-box">
+<p id="notice"></p>
+<div class="container" style="text-align: center;">
+  <section class="d-flex" style="flex-direction: column;">
+	<p id="notice"></p>
+      <h3>作品一覧</h3><br>
+      <div class="d-flex flex-wrap mx-auto">
               <% @genre.movies.each do |movie| %>
-                <td class="item">
+                <div class="item" style="width: 200px; margin-top: 2%;">
                     <%= link_to movie_path(movie) do %>
+                    <div class="col-25 p-0 m-auto text-decoration-none">
                       <%= movie.name %><br>
                       <%= movie.introduction %>
+                      </div>
                     <% end %>
-                </td>
+                </div>
               <% end %>
-            </tr>
-          </tbody>
-        </table>
+              <h3><%= @message %></h3>
     </div>
 </div>
