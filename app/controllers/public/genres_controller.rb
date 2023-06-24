@@ -3,7 +3,8 @@ class Public::GenresController < ApplicationController
     @genres = Genre.all
     @genre = Genre.find(params[:id])
     @message = ""
-    if @genre.empty?
+    @movies = @genre.movies
+    if @movies.empty?
       @message = "該当作品なし"
     end
   end

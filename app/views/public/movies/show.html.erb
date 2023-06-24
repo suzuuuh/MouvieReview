@@ -29,6 +29,10 @@
                 <% end %>
               </ul>
             <% end %>
+            <div class="border-bottom p-1 color:blue;">
+              <h5>この映画に対するレビュー</h5>
+            </div>
+            <p id="notice"></p>
         <% if @posts.any? %>
           <% @posts.each do |post| %>
             <%= link_to post_path(post.id) do %>

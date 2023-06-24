@@ -2,7 +2,6 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    	<p class="border border-primary">
         <h2 class="text-center m-5 border-bottom p-1 color:blue;">
           <%= @movie.name %>
         </h2>
@@ -10,8 +9,8 @@
           <%= @movie.introduction %>
         </h5>
       </p>
-        <h5 class="font-size:1em; m-5 text-center">
-          レビュー:<%= @post.review %>
+        <h5 class="font-size:1em; m-5 text-center border-bottom p-1 color:blue;">
+          レビュー:<%= @post.review %><br>
         </h5>
       </article>
       <div class="inverse m-5 text-center">

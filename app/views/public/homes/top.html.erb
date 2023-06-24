@@ -13,7 +13,7 @@
 
   <div class="d-flex flex-wrap mx-auto">
     <% @movies.each do |movie| %>
-        <div>
+        <div class="test" style="width: 200px; margin-top: 2%;">
           <%= link_to movie_path(movie.id) do %>
           <%#= movie_tag movie.get_image, size: "100x100" %>
           <div class="col-8 p-0 m-auto text-decoration-none btn-outline-dark">

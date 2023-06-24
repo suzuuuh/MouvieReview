@@ -9,12 +9,12 @@
         </h2>
         <h5 class="font-size:1em; m-5 text-center">
           <%= @movie.introduction %>
-        </h5>
+        </h5><br>
           <div class="font-size:1em; m-5 text-center">
-            <h5>投稿者</h5>
-            <h6><%= @post.user.nick_name %></h6><br>
             <h5>レビュー</h5>
-            <h6><%= @post.review %></h6>
+            <h6><%= @post.review %></h6><br>
+            <p>投稿者<br>
+            <%= @post.user.nick_name %></p><br>
           </div>
       </article>
       </div>
@@ -35,12 +35,16 @@
                 <% end %>
               </ul>
             <% end %>
+            <div class="border-bottom p-1 color:blue;">
+              <h5>このレビューに対するコメント</h5>
+            </div>
+            <p id="notice"></p>
         <% if @comments.any? %>
           <% @comments.each do |comment| %>
             投稿者:<%= comment.user.nick_name %><br>
             コメント:<%= comment.comment %><br>
             <div class="text-right">
-              <% if comment.user_id == current_user.id %>
+              <% if current_user && comment.user_id == current_user.id %>
                 <%= link_to "編集", edit_comment_path(comment) %>|<%= link_to "削除", comment_path(comment), "data-confirm" =>"本当に削除しますか？", method: :delete %>
               <% end %>
             </div>
