@@ -1,7 +1,7 @@
 <p id="notice"></p>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+    <div class="col-13 col-md-15 col-lg-10 px-5 px-sm-0">
 
         <h3><%= @user.nick_name %>さんの会員情報編集</h3>
 
@@ -48,6 +48,7 @@
                   <td>
                       会員ステータス
                     </td>
+                    <td></td>
                     <td>
                       <%= f.radio_button :is_deleted, false %>
                       <%= f.label :is_deleted, "有効", class: "text-active" %>
