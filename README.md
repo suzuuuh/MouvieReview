@@ -36,5 +36,7 @@ ER図　　　 https://drive.google.com/file/d/1uOL8-2rInFdnE7TDpVUNx9fSJ7PKZaNW
 - IDE：Cloud9
 
 ## 使用素材
-使用検討中
+https://www.pakutaso.com/
+http://o-dan.net/ja/
+https://morguefile.com/
 
